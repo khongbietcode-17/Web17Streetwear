@@ -1,0 +1,49 @@
+<?php
+session_start();
+include '../includes/db.php';
+include '../includes/header.php';
+
+
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    echo "<div class='container mt-4'><div class='alert alert-danger'>Không tìm thấy sản phẩm.</div></div>";
+    include '../includes/footer.php';
+    exit;
+}
+
+$id = (int)$_GET['id'];
+$result = mysqli_query($conn, "SELECT * FROM products WHERE id = $id");
+
+if (mysqli_num_rows($result) == 0) {
+    echo "<div class='container mt-4'><div class='alert alert-danger'>Sản phẩm không tồn tại.</div></div>";
+    include '../includes/footer.php';
+    exit;
+}
+
+$product = mysqli_fetch_assoc($result);
+?>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="../img/<?php echo $product['image']; ?>" class="img-fluid rounded shadow" alt="<?php echo $product['name']; ?>">
+        </div>
+        <div class="col-md-7">
+            <h3><?php echo $product['name']; ?></h3>
+            <h4 class="text-danger"><?php echo number_format($product['price'], 0); ?> VND</h4>
+            <p><strong>Loại:</strong> <?php echo ($product['category'] == 'ao') ? 'Áo' : 'Quần'; ?></p>
+            <p><strong>Mô tả:</strong> <?php echo nl2br($product['description']); ?></p>
+
+            <a href="../index.php" class="btn btn-secondary">← Quay lại trang chủ</a>
+            <!-- Form thêm vào giỏ hàng -->
+            <form action="../cart/add.php" method="POST">
+                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+                <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
+            </form>
+
+
+
+        </div>
+    </div>
+</div>
+
+<?php include '../includes/footer.php'; ?>

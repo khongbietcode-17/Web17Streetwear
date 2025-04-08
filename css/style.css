@@ -1,0 +1,149 @@
+/* style.css */
+.navbar-custom {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #000; /* màu nền nếu cần */
+  }
+
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link,
+.navbar-custom .nav-link span,
+.navbar-custom .navbar-toggler-icon {
+    color: #fff !important; /* Chữ màu trắng */
+}
+
+.navbar-custom .nav-link:hover {
+    color: #ccc !important; /* Hover nhẹ cho đẹp */
+}
+/* Đảm bảo ảnh banner luôn vừa khung và không méo */
+.carousel-inner img {
+    width: 100%;
+    height: 100vh; /* 60% chiều cao màn hình */
+    object-fit: cover; 
+  }
+  
+  /* Responsive cho màn nhỏ hơn */
+  @media (max-width: 768px) {
+    .carousel-inner img {
+      height: 40vh; /* Trên mobile thì giảm chiều cao ảnh */
+    }
+  }
+  /* Tạo hiệu ứng di chuyển mượt mà khi chuyển slide */
+.carousel-inner {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-item {
+    transition: opacity 0.5s ease-in-out;
+  }
+ 
+  .collection-title {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+  }
+  .collection-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border-left: 4px solid #000;
+    padding-left: 10px;
+}
+.collection-BIG{
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    border-left: 4px solid #000;
+    padding-left: 10px;
+}
+
+.card {
+    border: none;
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-text {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #000;
+    border: none;
+    padding: 10px 20px;
+}
+
+.btn-outline-primary {
+    border-color: #000;
+    color: #000;
+    margin-top: 20px;
+}
+
+.btn-outline-primary:hover {
+    background-color: #000;
+    color: #fff;
+}
+.product-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.product-image img {
+    width: 100%;
+    transition: opacity 0.3s ease;
+}
+
+.product-image .img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.product-image:hover .img-hover {
+    opacity: 1;
+}
+
+.product-image:hover .img-main {
+    opacity: 0;
+}
+.banner-small {
+    max-height: 1000px;
+    object-fit: cover;
+}
+.banner-smalls {
+    height: 100vh; /* hoặc bạn muốn fullscreen thì 100vh */
+    width: 100%;
+    object-fit: cover;
+}
+  
+  
