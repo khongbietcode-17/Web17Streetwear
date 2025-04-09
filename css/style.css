@@ -6,24 +6,21 @@
     background-color: #000; /* màu nền nếu cần */
   }
 
-
 .navbar-custom .navbar-brand,
 .navbar-custom .nav-link,
 .navbar-custom .nav-link span,
 .navbar-custom .navbar-toggler-icon {
     color: #fff !important; /* Chữ màu trắng */
 }
-
 .navbar-custom .nav-link:hover {
     color: #ccc !important; /* Hover nhẹ cho đẹp */
 }
 /* Đảm bảo ảnh banner luôn vừa khung và không méo */
 .carousel-inner img {
     width: 100%;
-    height: 100vh; /* 60% chiều cao màn hình */
+    height: 50vh; /* 60% chiều cao màn hình */
     object-fit: cover; 
   }
-  
   /* Responsive cho màn nhỏ hơn */
   @media (max-width: 768px) {
     .carousel-inner img {
@@ -143,7 +140,7 @@
 .banner-smalls {
     height: 100vh; /* hoặc bạn muốn fullscreen thì 100vh */
     width: 100%;
-    object-fit: cover;
+
 }
   
   

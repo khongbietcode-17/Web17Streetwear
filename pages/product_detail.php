@@ -29,16 +29,33 @@ $product = mysqli_fetch_assoc($result);
         </div>
         <div class="col-md-7">
             <h3><?php echo $product['name']; ?></h3>
-            <h4 class="text-danger"><?php echo number_format($product['price'], 0); ?> VND</h4>
+            <h4 class="text-danger"><?php echo number_format($product['price'], 0); ?>.000 VND</h4>
             <p><strong>Loại:</strong> <?php echo ($product['category'] == 'ao') ? 'Áo' : 'Quần'; ?></p>
             <p><strong>Mô tả:</strong> <?php echo nl2br($product['description']); ?></p>
 
             <a href="../index.php" class="btn btn-secondary">← Quay lại trang chủ</a>
             <!-- Form thêm vào giỏ hàng -->
-            <form action="../cart/add.php" method="POST">
-                <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
-                <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
-            </form>
+           <!-- Form thêm vào giỏ hàng -->
+           <form action="../cart/add.php" method="POST" class="mt-3">
+    <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
+
+    <div class="mb-2">
+        <label for="quantity"><strong>Số lượng:</strong></label>
+        <input type="number" name="quantity" id="quantity" value="1" min="1" class="form-control" style="width: 100px;" required>
+    </div>
+
+    <div class="mb-2">
+        <label for="size"><strong>Chọn size:</strong></label>
+        <select name="size" id="size" class="form-control" style="width: 100px;" required>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
+</form>
+
 
 
 

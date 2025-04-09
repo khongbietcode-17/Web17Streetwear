@@ -19,7 +19,6 @@ include 'includes/header.php';
     Trình duyệt của bạn không hỗ trợ video.
   </video>
 </div>
-
 <div id="bannerCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -158,10 +157,10 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
   </video>
 </div>
 
-<h2 class="collection-title">ÁO NGẮN</h2>
+<h2 class="collection-title">QUẦN NGẮN</h2>
     <div class="row">
     <?php
-    $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'quan_nganngan' ORDER BY id DESC LIMIT 4");
+    $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'quan_ngan' ORDER BY id DESC LIMIT 4");
     while ($row = mysqli_fetch_assoc($aokhoac)) {
         echo '
         <div class="col-md-3">
@@ -180,11 +179,10 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
 
     <a href="pages/category.php?category=quan_ngan" class="btn btn-outline-primary">Xem thêm →</a>
 
-    <h2 class="collection-title">QUẦN THUN
-   </h2>
+    <h2 class="collection-title">QUẦN DÀIDÀI</h2>
     <div class="row">
     <?php
-    $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'quan_thunthun' ORDER BY id DESC LIMIT 4");
+    $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'quan_dai' ORDER BY id DESC LIMIT 4");
     while ($row = mysqli_fetch_assoc($aokhoac)) {
         echo '
         <div class="col-md-3">
@@ -200,7 +198,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
     }
     ?>
     </div>
-<a href="pages/category.php?category=quan_thun" class="btn btn-outline-primary">Xem thêm →</a>
+<a href="pages/category.php?category=quan_dai" class="btn btn-outline-primary">Xem thêm →</a>
 
 </div>
 

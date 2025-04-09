@@ -14,6 +14,7 @@ include '../includes/header.php';
                 <tr>
                     <th>Ảnh</th>
                     <th>Tên sản phẩm</th>
+                    <th>Size</th> <!-- Thêm cột Size -->
                     <th>Giá</th>
                     <th>Số lượng</th>
                     <th>Thành tiền</th>
@@ -30,9 +31,10 @@ include '../includes/header.php';
                 <tr>
                     <td><img src="../img/<?php echo $item['image']; ?>" width="80"></td>
                     <td><?php echo $item['name']; ?></td>
-                    <td><?php echo number_format($item['price'], 0); ?> VND</td>
+                    <td><?php echo $item['size']; ?></td> <!-- Hiển thị size -->
+                    <td><?php echo number_format($item['price'], 0); ?>.000 VND</td>
                     <td><?php echo $item['quantity']; ?></td>
-                    <td><?php echo number_format($subtotal, 0); ?> VND</td>
+                    <td><?php echo number_format($subtotal, 0); ?>.000 VND</td>
                     <td>
                         <a href="remove.php?id=<?php echo $item['id']; ?>" class="btn btn-danger btn-sm">Xóa</a>
                     </td>
@@ -42,7 +44,7 @@ include '../includes/header.php';
             <tfoot>
                 <tr>
                     <th colspan="4">Tổng cộng</th>
-                    <th colspan="2" class="text-danger"><?php echo number_format($total, 0); ?> VND</th>
+                    <th colspan="2" class="text-danger"><?php echo number_format($total, 0); ?>.000 VND</th>
                 </tr>
             </tfoot>
         </table>

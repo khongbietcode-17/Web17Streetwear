@@ -57,6 +57,12 @@ $hidden_cart_pages = array('login.php', 'register.php', 'add_product.php', 'orde
           <li class="nav-item">
             <span class="nav-link">👤 Xin chào, <strong><?php echo $_SESSION['username']; ?></strong></span>
           </li>
+          <?php if (isset($_SESSION['role']) && $_SESSION['role'] != 'admin'): ?>
+  <li class="nav-item">
+    <a class="nav-link" href="<?php echo BASE_URL; ?>pages/order_history.php">🧾 Lịch sử đặt hàng</a>
+  </li>
+<?php endif; ?>
+
           <li class="nav-item">
             <a class="nav-link text-danger" href="<?php echo BASE_URL; ?>logout.php">Đăng xuất</a>
           </li>

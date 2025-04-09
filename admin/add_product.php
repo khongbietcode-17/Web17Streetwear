@@ -73,8 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <option value="ao_somi">Áo Sơ Mi</option>
                 <option value="ao_hoodie">Hoodie</option>
                 <option value="quan_ngan">Quần Ngắn</option>
-                <option value="quan_thun">Quần Thun</option>
-                <option value="quan_jeans">Quần Jeans</option>
+                <option value="quan_dai">Quần Dài</option>
             </select>
         </div>
         <div class="mb-3">

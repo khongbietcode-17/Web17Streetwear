@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../includes/header.php';
-include '../includes/db.php'; // Kết nối CSDL
+include '../includes/db.php';
 
 // Kiểm tra đăng nhập
 if (!isset($_SESSION['user_id'])) {
@@ -23,26 +23,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user_id = $_SESSION['user_id'];
     $cart = $_SESSION['cart'];
 
+    // Tính tổng tiền đơn hàng
+    $total = 0;
     foreach ($cart as $item) {
-        $product_id = $item['id'];
-        $quantity = $item['quantity'];
-        $total = $item['price'] * $quantity;
-
-        $sql = "INSERT INTO orders (user_id, product_id, quantity, total, name, phone, address, created)
-        VALUES ('$user_id', '$product_id', '$quantity', '$total', '$name', '$phone', '$address', NOW())";
-
-
-        if (!mysqli_query($conn, $sql)) {
-            echo "Lỗi khi lưu đơn hàng: " . mysqli_error($conn);
-            exit;
-        }
+        $total += $item['price'] * $item['quantity'];
     }
 
-    // Xóa giỏ hàng sau khi đặt
-    unset($_SESSION['cart']);
+    // Lưu đơn hàng vào bảng orders
+    $sql_order = "INSERT INTO orders (user_id, total, name, phone, address, created) 
+                  VALUES ('$user_id', '$total', '$name', '$phone', '$address', NOW())";
 
-    echo "<script>alert('Đặt hàng thành công!'); window.location.href = '../index.php';</script>";
-    exit;
+    if (mysqli_query($conn, $sql_order)) {
+        $order_id = mysqli_insert_id($conn); // Lấy ID đơn hàng vừa tạo
+
+        // Lưu từng sản phẩm vào bảng order_items
+        foreach ($cart as $item) {
+            $product_id = $item['id'];
+            $quantity = $item['quantity'];
+            $price = $item['price'];
+
+            $sql_item = "INSERT INTO order_items (order_id, product_id, quantity, price)
+                         VALUES ('$order_id', '$product_id', '$quantity', '$price')";
+
+            if (!mysqli_query($conn, $sql_item)) {
+                echo "Lỗi khi lưu chi tiết đơn hàng: " . mysqli_error($conn);
+                exit;
+            }
+        }
+
+        // Xóa giỏ hàng sau khi đặt
+        unset($_SESSION['cart']);
+
+        echo "<script>alert('Đặt hàng thành công!'); window.location.href = '../index.php';</script>";
+        exit;
+    } else {
+        echo "Lỗi khi lưu đơn hàng: " . mysqli_error($conn);
+    }
 }
 ?>
 
