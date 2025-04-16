@@ -21,7 +21,7 @@ if (mysqli_num_rows($result) == 0) {
 
 $product = mysqli_fetch_assoc($result);
 ?>
-
+<link rel="stylesheet" href="../css/style_productdetail.css">
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-5">
@@ -30,11 +30,29 @@ $product = mysqli_fetch_assoc($result);
         <div class="col-md-7">
             <h3><?php echo $product['name']; ?></h3>
             <h4 class="text-danger"><?php echo number_format($product['price'], 0); ?>.000 VND</h4>
-            <p><strong>Loại:</strong> <?php echo ($product['category'] == 'ao') ? 'Áo' : 'Quần'; ?></p>
+            <p><strong>Loại:</strong>
+        <?php
+        switch ($product['category']) {
+            case 'ao_thun':
+                echo 'Áo thun';
+                break;
+            case 'ao_somi':
+                echo 'Sơ Mi';
+                break;    
+            case 'ao_khoac':
+                echo 'Áo khoác';
+                break;
+            case 'quan_thun':
+                echo 'Quần thun';
+                break;
+            default:
+                echo 'Không xác định';
+        }
+        ?>
+</p>
             <p><strong>Mô tả:</strong> <?php echo nl2br($product['description']); ?></p>
 
-            <a href="../index.php" class="btn btn-secondary">← Quay lại trang chủ</a>
-            <!-- Form thêm vào giỏ hàng -->
+          
            <!-- Form thêm vào giỏ hàng -->
            <form action="../cart/add.php" method="POST" class="mt-3">
     <input type="hidden" name="id" value="<?php echo $product['id']; ?>">
@@ -54,8 +72,10 @@ $product = mysqli_fetch_assoc($result);
     </div>
 
     <button type="submit" class="btn btn-success">🛒 Thêm vào giỏ hàng</button>
+    
 </form>
 
+    <a href="../index.php" class="btn btn-secondary">← Quay lại trang chủ</a>
 
 
 

@@ -19,14 +19,12 @@ $hidden_cart_pages = array('login.php', 'register.php', 'add_product.php', 'orde
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="index.php">SEVENTEEN STREETWEAR SHOP</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto">
         <?php if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin'): ?>
@@ -36,9 +34,11 @@ $hidden_cart_pages = array('login.php', 'register.php', 'add_product.php', 'orde
           <li class="nav-item">
             <a class="nav-link" href="<?php echo BASE_URL; ?>admin/orders.php">📦 Đơn hàng</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo BASE_URL; ?>admin/list_product.php">Danh sách sản phẩm</a>
+          </li>
         <?php endif; ?>
       </ul>
-
       <ul class="navbar-nav ms-auto align-items-center">
         <?php if (!in_array($current_page, $hidden_cart_pages)): ?>
         <li class="nav-item">

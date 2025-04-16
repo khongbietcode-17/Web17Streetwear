@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="register-wrapper">
 <div class="register-banner">
     <video autoplay muted loop playsinline>
-        <source src="video/carhd.mp4" type="video/mp4">
+        <source src="video/videoregis.mp4" type="video/mp4">
         Trình duyệt của bạn không hỗ trợ video.
     </video>
 </div>

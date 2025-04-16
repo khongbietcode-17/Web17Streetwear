@@ -41,9 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $product_id = $item['id'];
             $quantity = $item['quantity'];
             $price = $item['price'];
+            $size =$item['size'];
 
-            $sql_item = "INSERT INTO order_items (order_id, product_id, quantity, price)
-                         VALUES ('$order_id', '$product_id', '$quantity', '$price')";
+            $sql_item = "INSERT INTO order_items (order_id, product_id, quantity, price, size)
+                         VALUES ('$order_id', '$product_id', '$quantity', '$price','$size')";
 
             if (!mysqli_query($conn, $sql_item)) {
                 echo "Lỗi khi lưu chi tiết đơn hàng: " . mysqli_error($conn);
@@ -62,25 +63,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 ?>
 
-<div class="container mt-4">
-    <h3>🧾 Thông tin giao hàng</h3>
-    <form method="POST" class="row g-3">
-        <div class="col-md-6">
-            <label class="form-label">Họ và tên</label>
-            <input type="text" name="name" class="form-control" required>
+<link rel="stylesheet" href="../css/checkout.css"> <!-- THÊM LINK CSS -->
+
+<div class="container">
+    <div class="checkout-container">
+      
+        <div class="checkout-image">
+        <video autoplay muted loop>
+    <source src="../video/ship.mp4" type="video/mp4">
+    Trình duyệt không hỗ trợ video.
+</video>
         </div>
-        <div class="col-md-6">
-            <label class="form-label">Số điện thoại</label>
-            <input type="text" name="phone" class="form-control" required>
+
+        <!-- BÊN PHẢI: FORM THANH TOÁN -->
+        <div class="checkout-form">
+            <h3>🧾 Thông tin giao hàng</h3>
+            <form method="POST" class="row g-3">
+                <div class="col-12">
+                    <label class="form-label">Họ và tên</label>
+                    <input type="text" name="name" class="form-control" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Số điện thoại</label>
+                    <input type="text" name="phone" class="form-control" required>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Địa chỉ</label>
+                    <textarea name="address" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit">Xác nhận đặt hàng</button>
+                </div>
+            </form>
         </div>
-        <div class="col-12">
-            <label class="form-label">Địa chỉ</label>
-            <textarea name="address" class="form-control" rows="3" required></textarea>
-        </div>
-        <div class="col-12 text-end">
-            <button type="submit" class="btn btn-primary">✅ Xác nhận đặt hàng</button>
-        </div>
-    </form>
+    </div>
 </div>
+
 
 <?php include '../includes/footer.php'; ?>

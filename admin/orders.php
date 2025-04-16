@@ -58,7 +58,7 @@ $result_orders = mysqli_query($conn, $sql_orders);
                 </table>
 
                 <div class="text-end fw-bold">
-                    Tổng tiền: <?php echo number_format($order['total'], 0); ?> VND
+                    Tổng tiền: <?php echo number_format($order['total'], 0); ?>.000 VND
                 </div>
             </div>
         </div>

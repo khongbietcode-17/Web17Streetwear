@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <div class="login-wrapper">
     <div class="login-banner">
         <video autoplay muted loop playsinline>
-            <source src="video/carhd.mp4" type="video/mp4">
+            <source src="video/VIDEOLOGIN.mp4" type="video/mp4">
             Trình duyệt của bạn không hỗ trợ video.
         </video>
     </div>

@@ -1,0 +1,62 @@
+.checkout-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    max-width: 1000px; /* giảm kích thước tổng thể */
+    margin: 0 auto;     /* canh giữa */
+  }
+  
+  .checkout-image,
+  .checkout-form {
+    flex: 1;
+    max-width: 480px; /* giảm kích thước từng phần */
+  }
+  
+  .checkout-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+
+
+
+
+.checkout-form {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-form h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.checkout-form label {
+    font-weight: 500;
+}
+
+.checkout-form .form-control {
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.checkout-form button {
+    background-color: #000;
+    border: none;
+    padding: 12px 30px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.checkout-form button:hover {
+    background-color: #333;
+}

@@ -1,13 +1,9 @@
-body {
-    background-color: #000;
-    color: #fff;
-    height: 100%;
-}
+
 
 .login-wrapper {
     display: flex;
-    max-width: 1000px;
-    margin: 50px auto;
+    max-width: 900px;
+    margin: 60px auto;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -45,9 +41,11 @@ body {
 }
 
 .login-form button {
+    background-color: #000;
     width: 100%;
     padding: 10px;
     font-weight: bold;
     border-radius: 6px;
     margin-top: 10px;
+
 }

@@ -1,0 +1,82 @@
+/* Container chính */
+.container {
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/* Ảnh sản phẩm */
+.img-fluid {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #f9f9f9;
+    transition: transform 0.3s ease;
+}
+
+.img-fluid:hover {
+    transform: scale(1.02);
+}
+
+/* Tên sản phẩm */
+h3 {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Giá sản phẩm */
+h4.text-danger {
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #e74c3c !important;
+}
+
+/* Mô tả và loại */
+p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Form */
+form {
+    margin-top: 20px;
+}
+
+form label {
+    font-weight: 600;
+    color: #333;
+}
+
+form input[type="number"],
+form select {
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    margin-top: 5px;
+}
+
+form input[type="number"]:focus,
+form select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+    outline: none;
+}
+
+.btn-success {
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+}
+
+/* Responsive khi mobile */
+@media (max-width: 768px) {
+    .col-md-5, .col-md-7 {
+        margin-bottom: 20px;
+    }
+}

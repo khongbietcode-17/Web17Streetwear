@@ -13,22 +13,22 @@ include 'includes/header.php';
   <link rel="stylesheet" href="/vertrigo/banquanao/css/style.css">
   <script src="/vertrigo/banquanao/js/script.js"></script>
 </head>
-<div class="container my-4">
+
   <video class="img-fluid rounded shadow banner-small" autoplay muted loop>
-    <source src="video/carhd.mp4" type="video/mp4">
+    <source src="video/ok.mp4" type="video/mp4">
     Trình duyệt của bạn không hỗ trợ video.
   </video>
-</div>
+
 <div id="bannerCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/banner/bannergt.jpg" class="d-block w-100" alt="Banner 1">
+      <img src="img/banner/3.jpg" class="d-block w-100" alt="Banner 1">
     </div>
     <div class="carousel-item">
-      <img src="img/banner/banner2.jpg" class="d-block w-100" alt="Banner 2">
+      <img src="img/banner/2.jpg" class="d-block w-100" alt="Banner 2">
     </div>
     <div class="carousel-item">
-      <img src="img/banner/banner3.jpg" class="d-block w-100" alt="Banner 3">
+      <img src="img/banner/1.jpg" class="d-block w-100" alt="Banner 3">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
@@ -39,11 +39,11 @@ include 'includes/header.php';
   </button>
 </div>
 
-<div class="container mt-4">
-    <h2 class="collection-title">SẢN PHẨM MỚI</h2>
+    <div class="container mt-4">
+        <h2 class="collection-title">BỘ SƯU TẬP MỚI GRANACHO</h2>
     <div class="row">
         <?php
-        $featured = mysqli_query($conn, "SELECT * FROM products WHERE is_featured = 1 ORDER BY id DESC");
+        $featured = mysqli_query($conn, "SELECT * FROM products WHERE id IN (28, 39, 40, 41)");
         while ($row = mysqli_fetch_assoc($featured)) {
             echo '
             <div class="col-md-3">
@@ -62,7 +62,7 @@ include 'includes/header.php';
      <!-- BANNER TĨNH RÚT GỌN (CÁCH CSS) -->
      <div class="container my-4">
   <video class="img-fluid rounded shadow banner-smallss" autoplay muted loop>
-    <source src="video/top.mp4" type="video/mp4">
+    <source src="video/videotop.mp4" type="video/mp4">
     Trình duyệt của bạn không hỗ trợ video.
   </video>
 </div>
@@ -79,7 +79,7 @@ while ($row = mysqli_fetch_assoc($aothun)) {
             <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
             <div class="card-body">
                 <h5 class="card-title">'.$row['name'].'</h5>
-                <p class="card-text">'.number_format($row['price'], 0).' VND</p>
+                <p class="card-text">'.number_format($row['price'], 0).'.000 VND</p>
                 <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
             </div>
         </div>
@@ -100,7 +100,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
             <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
             <div class="card-body">
                 <h5 class="card-title">'.$row['name'].'</h5>
-                <p class="card-text">'.number_format($row['price'], 0).' VND</p>
+                <p class="card-text">'.number_format($row['price'], 0).'.000 VND</p>
                 <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
             </div>
         </div>
@@ -121,7 +121,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
                 <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
                 <div class="card-body">
                     <h5 class="card-title">'.$row['name'].'</h5>
-                    <p class="card-text">'.number_format($row['price'], 0).' VND</p>
+                    <p class="card-text">'.number_format($row['price'], 0).'.000 VND</p>
                     <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>
@@ -130,29 +130,10 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
     ?>
     </div>
 <a href="pages/category.php?category=ao_hoodie" class="btn btn-outline-primary">Xem thêm →</a>
-<h2 class="collection-title">ÁO KHOÁC</h2>
-    <div class="row">
-    <?php
-    $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'ao_hoodie' ORDER BY id DESC LIMIT 4");
-    while ($row = mysqli_fetch_assoc($aokhoac)) {
-        echo '
-        <div class="col-md-3">
-            <div class="card mb-4">
-                <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
-                <div class="card-body">
-                    <h5 class="card-title">'.$row['name'].'</h5>
-                    <p class="card-text">'.number_format($row['price'], 0).' VND</p>
-                    <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
-                </div>
-            </div>
-        </div>';
-    }
-    ?>
-    </div>
-<a href="pages/category.php?category=ao_hoodie" class="btn btn-outline-primary">Xem thêm →</a>
+
 <div class="container my-4">
   <video class="img-fluid rounded shadow banner-small" autoplay muted loop>
-    <source src="video/pant.mp4" type="video/mp4">
+    <source src="video/videobot.mp4" type="video/mp4">
     Trình duyệt của bạn không hỗ trợ video.
   </video>
 </div>
@@ -168,7 +149,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
                 <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
                 <div class="card-body">
                     <h5 class="card-title">'.$row['name'].'</h5>
-                    <p class="card-text">'.number_format($row['price'], 0).' VND</p>
+                    <p class="card-text">'.number_format($row['price'], 0).'.000 VND</p>
                     <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>
@@ -179,7 +160,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
 
     <a href="pages/category.php?category=quan_ngan" class="btn btn-outline-primary">Xem thêm →</a>
 
-    <h2 class="collection-title">QUẦN DÀIDÀI</h2>
+    <h2 class="collection-title">QUẦN DÀI</h2>
     <div class="row">
     <?php
     $aokhoac = mysqli_query($conn, "SELECT * FROM products WHERE category = 'quan_dai' ORDER BY id DESC LIMIT 4");
@@ -190,7 +171,7 @@ while ($row = mysqli_fetch_assoc($aosomi)) {
                 <img src="img/'.$row['image'].'" class="card-img-top" alt="'.$row['name'].'">
                 <div class="card-body">
                     <h5 class="card-title">'.$row['name'].'</h5>
-                    <p class="card-text">'.number_format($row['price'], 0).' VND</p>
+                    <p class="card-text">'.number_format($row['price'], 0).'.000 VND</p>
                     <a href="pages/product_detail.php?id='.$row['id'].'" class="btn btn-primary">Xem chi tiết</a>
                 </div>
             </div>

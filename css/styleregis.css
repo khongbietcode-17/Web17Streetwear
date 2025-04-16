@@ -1,11 +1,11 @@
 .register-wrapper {
     display: flex;
     max-width: 900px;
-    margin: 40px auto;
+    margin: 50px auto;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow: hidden;
-    height: 71%;
+    height: 72%;
 }
 
 .register-banner {
